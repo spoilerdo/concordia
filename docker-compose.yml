@@ -1,0 +1,46 @@
+version: '3'
+services:
+  CMS:
+    container_name: concordia_cms
+    build: .
+    env_file: .env.development
+    image: concordia_cms:latest
+    restart: unless-stopped
+    volumes:
+      - ./config:/opt/app/config
+      - ./src:/opt/app/src
+      - ./package.json:/opt/package.json
+      - ./yarn.lock:/opt/yarn.lock
+      - ./public/uploads:/opt/app/public/uploads
+    ports:
+      - '1337:1337'
+    networks:
+      - CMS
+    depends_on:
+      - CMSDB
+
+  CMSDB:
+    container_name: concordia_cms_db
+    platform: linux/amd64
+    restart: unless-stopped
+    env_file: .env.development
+    image: postgres:14.5-alpine
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    volumes:
+      - concordia-cms-data:/var/lib/postgresql/data/
+
+    ports:
+      - '5432:5432'
+    networks:
+      - CMS
+
+volumes:
+  concordia-cms-data:
+
+networks:
+  CMS:
+    name: concordia-cms
+    driver: bridge

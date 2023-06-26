@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "instruments",
+  "info": {
+    "singularName": "instrument",
+    "pluralName": "instruments",
+    "displayName": "Instrument",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Brand": {
+      "type": "string"
+    },
+    "Serial_Number": {
+      "type": "string"
+    },
+    "Type": {
+      "type": "string"
+    },
+    "Private_Property": {
+      "type": "boolean"
+    },
+    "Purchase_Date": {
+      "type": "date"
+    },
+    "Next_Revision": {
+      "type": "date"
+    },
+    "Last_Revision": {
+      "type": "date"
+    },
+    "Remarks": {
+      "type": "text"
+    },
+    "Member": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::member.member",
+      "inversedBy": "Instruments"
+    }
+  }
+}

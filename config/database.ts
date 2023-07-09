@@ -67,7 +67,7 @@ export default ({ env }) => {
           env.bool("DATABASE_SSL") === true
             ? {
                 ca: fs
-                  .readFileSync(`${__dirname}/../../ci/azureDbCA.crt.pem`)
+                  .readFileSync(`${__dirname}/../ci/azureDBCA.crt.pem`)
                   .toString(),
               }
             : false,

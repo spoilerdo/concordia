@@ -3,8 +3,6 @@
 set -e
 
 #duplicate .env.template and fill in values
-cd $CI_PROJECT_DIR/CMS/
-
 printf "Copying template env file... \n"
 cp .env.template .env
 

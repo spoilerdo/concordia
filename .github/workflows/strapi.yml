@@ -1,0 +1,38 @@
+name: Strapi CMS
+on: push
+jobs:
+  build_strapi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: set Node v14
+        uses: actions/setup-node@master
+        with:
+          node-version: 14.x
+      - name: install
+        uses: borales/actions-yarn@master
+        with:
+          cmd: install
+      - name: build
+        run: npm run build
+
+  deploy_to_azure:
+    runs-on: ubuntu-latest
+    needs: build_strapi
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@master
+      - name: configure strapi
+        run: |
+          ./ci/build-prod-env.sh
+          ./ci/fill-cert.sh
+        working-directory: ./
+        shell: bash
+      - name: deploy to azure
+        uses: aevea/action-kaniko@master
+        with:
+          image: ${{ secrets.AZURE_STRAPI_IMAGE }}
+          registry: ${{ secrets.AZURE_STRAPI_REGISTRY }}
+          username: ${{ secrets.AZURE_STRAPI_USERNAME }}
+          password: ${{ secrets.AZURE_STRAPI_PASSWORD }}
+          build_file: Dockerfile.prod

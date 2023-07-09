@@ -6,6 +6,6 @@ cd ci/
 
 printf "Filling in SSL CA Certification for Postgress DB connection... \n"
 
-sed -i 's~%DATABASE_CRT%~'"$DATABASE_CRT"'~' azureDbCA.crt.pem
+sed -i 's~%DATABASE_CRT%~'"$DATABASE_CRT"'~' azureDBCA.crt.pem
 
 printf "Done... \n"

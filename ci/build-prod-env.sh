@@ -19,4 +19,6 @@ sed -i 's~%DATABASE_NAME%~'"$DATABASE_NAME"'~' .env
 sed -i 's~%DATABASE_USERNAME%~'"$DATABASE_USERNAME"'~' .env
 sed -i 's~%DATABASE_PASSWORD%~'"$DATABASE_PASSWORD"'~' .env
 
+echo "$(<.env)"
+
 printf "Done... \n"

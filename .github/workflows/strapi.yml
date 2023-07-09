@@ -1,5 +1,8 @@
 name: Strapi CMS
-on: push
+on:
+  push:
+    branches:
+      - main
 jobs:
   build_strapi:
     runs-on: ubuntu-latest
@@ -36,3 +39,4 @@ jobs:
           username: ${{ secrets.AZURE_STRAPI_USERNAME }}
           password: ${{ secrets.AZURE_STRAPI_PASSWORD }}
           build_file: Dockerfile.prod
+          tag: latest

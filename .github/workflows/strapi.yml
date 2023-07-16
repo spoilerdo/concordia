@@ -42,6 +42,7 @@ jobs:
           DATABASE_NAME: ${{ vars.DATABASE_NAME }}
           DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
           DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          DATABASE_CRT: ${{ secrets.DATABASE_CRT }}
       - name: deploy to azure
         uses: aevea/action-kaniko@master
         with:

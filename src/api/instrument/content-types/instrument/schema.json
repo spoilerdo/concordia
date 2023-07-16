@@ -13,22 +13,29 @@
   "pluginOptions": {},
   "attributes": {
     "Name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Brand": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Serial_Number": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Type": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Private_Property": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false,
+      "required": true
     },
     "Purchase_Date": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "Next_Revision": {
       "type": "date"
@@ -39,11 +46,31 @@
     "Remarks": {
       "type": "text"
     },
-    "Member": {
+    "Current_Member": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::member.member",
       "inversedBy": "Instruments"
+    },
+    "Purchase_Value": {
+      "type": "decimal"
+    },
+    "Occasion": {
+      "type": "decimal"
+    },
+    "Computed_Insurance_Value": {
+      "type": "decimal"
+    },
+    "Supplier": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::supplier.supplier"
+    },
+    "Last_Member": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::member.member",
+      "inversedBy": "Last_Instruments"
     }
   }
 }

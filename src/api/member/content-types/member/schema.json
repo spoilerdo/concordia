@@ -37,7 +37,13 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::instrument.instrument",
-      "mappedBy": "Member"
+      "mappedBy": "Current_Member"
+    },
+    "Last_Instruments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::instrument.instrument",
+      "mappedBy": "Last_Member"
     }
   }
 }

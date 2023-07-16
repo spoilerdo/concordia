@@ -71,6 +71,13 @@
       "relation": "manyToOne",
       "target": "api::member.member",
       "inversedBy": "Last_Instruments"
+    },
+    "Picture": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

@@ -12,13 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "FirstName": {
       "type": "string"
     },
     "PhoneNumber": {
       "type": "string"
     },
-    "MailAdress": {
+    "MailAddress": {
       "type": "email"
     },
     "Has_Mute": {
@@ -44,6 +44,49 @@
       "relation": "oneToMany",
       "target": "api::instrument.instrument",
       "mappedBy": "Last_Member"
+    },
+    "LastName": {
+      "type": "string"
+    },
+    "Initials": {
+      "type": "string"
+    },
+    "Birthdate": {
+      "type": "date"
+    },
+    "Gender": {
+      "type": "enumeration",
+      "enum": [
+        "Male,",
+        "Female,",
+        "Other"
+      ]
+    },
+    "Address": {
+      "type": "string"
+    },
+    "City": {
+      "type": "string"
+    },
+    "Zipcode": {
+      "type": "string"
+    },
+    "Country": {
+      "type": "string"
+    },
+    "StartMembership": {
+      "type": "date"
+    },
+    "EndMembership": {
+      "type": "date"
+    },
+    "ReEntered": {
+      "type": "boolean"
+    },
+    "Tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
     }
   }
 }

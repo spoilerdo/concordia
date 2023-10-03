@@ -34,8 +34,7 @@
       "required": true
     },
     "Purchase_Date": {
-      "type": "date",
-      "required": true
+      "type": "date"
     },
     "Next_Revision": {
       "type": "date"

@@ -12,15 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "Serial_Number": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Kind": {
       "type": "string",
       "required": true
     },
     "Brand": {
-      "type": "string",
-      "required": true
-    },
-    "Serial_Number": {
       "type": "string",
       "required": true
     },
@@ -72,11 +73,17 @@
       "inversedBy": "Last_Instruments"
     },
     "Picture": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "Division": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tag.tag"
     }
   }
 }
